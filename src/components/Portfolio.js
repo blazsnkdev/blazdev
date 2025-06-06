@@ -40,7 +40,6 @@ const Portfolio = () => {
           >
             <Code size={24} color="white" />
           </div>
-          {/* <span style={{ fontWeight: "bold", fontSize: "20px", color: "#1f2937" }}>CB</span> */}
         </div>
         <div style={{ display: "flex", gap: "16px" }}>
           <button
@@ -54,7 +53,10 @@ const Portfolio = () => {
           >
             Proyectos
           </button>
-          <button
+          <a
+            href="https://wa.me/51943787437"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               padding: "8px 16px",
               borderRadius: "20px",
@@ -62,10 +64,12 @@ const Portfolio = () => {
               backgroundColor: "#7c3aed",
               color: "white",
               cursor: "pointer",
+              textDecoration: "none",
+              display: "inline-block",
             }}
           >
             Contacto
-          </button>
+          </a>
         </div>
       </header>
 
@@ -74,7 +78,7 @@ const Portfolio = () => {
         <div style={{ marginBottom: "32px" }}>
           <h1
             style={{
-              fontSize: "48px",
+              fontSize: "clamp(32px, 5vw, 48px)",
               fontWeight: "bold",
               color: "#1f2937",
               marginBottom: "16px",
@@ -86,7 +90,7 @@ const Portfolio = () => {
 
           <p
             style={{
-              fontSize: "20px",
+              fontSize: "clamp(16px, 2.5vw, 20px)",
               color: "#6b7280",
               maxWidth: "600px",
               margin: "0 auto 32px",
@@ -97,7 +101,7 @@ const Portfolio = () => {
             empresariales.
           </p>
 
-          {/* Profile Image */}
+          {/* Profile Image - Preparado para imagen real */}
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "32px" }}>
             <div
               style={{
@@ -109,20 +113,48 @@ const Portfolio = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+                padding: "4px", // Espacio para el borde
               }}
             >
               <div
                 style={{
-                  width: "112px",
-                  height: "112px",
+                  width: "120px",
+                  height: "120px",
                   backgroundColor: "white",
                   borderRadius: "50%",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  overflow: "hidden", // Para que la imagen se recorte en círculo
                 }}
               >
-                <span style={{ fontSize: "32px", fontWeight: "bold", color: "#7c3aed" }}>CA</span>
+                {/* Aquí puedes reemplazar con tu imagen */}
+                <img
+                  src="/images/blaz_img1.jpg"
+                  alt="Camilo Blas Asto Aiquipa"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    borderRadius: "50%",
+                  }}
+                  onError={(e) => {
+                    // Fallback si no hay imagen
+                    e.target.style.display = "none"
+                    e.target.nextSibling.style.display = "flex"
+                  }}
+                />
+                {/* Fallback text si no hay imagen */}
+                <span
+                  style={{
+                    fontSize: "32px",
+                    fontWeight: "bold",
+                    color: "#7c3aed",
+                    display: "none", // Se mostrará solo si falla la imagen
+                  }}
+                >
+                  CA
+                </span>
               </div>
             </div>
           </div>
@@ -169,23 +201,29 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Skills */}
+          {/* Skills - Exactamente 3x2 como especificaste */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gridTemplateRows: "repeat(2, 1fr)",
               gap: "16px",
-              maxWidth: "900px",
+              maxWidth: "600px",
               margin: "0 auto 32px",
             }}
+            className="skills-grid"
           >
+            {/* FILA 1: C#, ASP.NET, SQL */}
+
+            {/* C# */}
             <div
               style={{
-                padding: "24px",
+                padding: "20px",
                 backgroundColor: "white",
                 borderRadius: "12px",
                 boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
                 textAlign: "center",
+                transition: "transform 0.2s ease",
               }}
             >
               <div
@@ -197,22 +235,53 @@ const Portfolio = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  margin: "0 auto 8px",
+                  margin: "0 auto 12px",
                 }}
               >
                 <Code size={24} color="#7c3aed" />
               </div>
-              <h3 style={{ fontWeight: "600", color: "#7c3aed", marginBottom: "4px" }}>C#</h3>
-              <p style={{ fontSize: "14px", color: "#6b7280" }}>Favorito</p>
+              <h3 style={{ fontWeight: "600", color: "#7c3aed", marginBottom: "4px", fontSize: "16px" }}>C#</h3>
+              <p style={{ fontSize: "12px", color: "#6b7280" }}>Favorito</p>
             </div>
 
+            {/* ASP.NET */}
             <div
               style={{
-                padding: "24px",
+                padding: "20px",
                 backgroundColor: "white",
                 borderRadius: "12px",
                 boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
                 textAlign: "center",
+                transition: "transform 0.2s ease",
+              }}
+            >
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  backgroundColor: "#ede9fe",
+                  borderRadius: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 12px",
+                }}
+              >
+                <span style={{ color: "#7c3aed", fontWeight: "bold", fontSize: "14px" }}>ASP</span>
+              </div>
+              <h3 style={{ fontWeight: "600", color: "#7c3aed", marginBottom: "4px", fontSize: "16px" }}>ASP.NET</h3>
+              <p style={{ fontSize: "12px", color: "#6b7280" }}>Framework</p>
+            </div>
+
+            {/* SQL */}
+            <div
+              style={{
+                padding: "20px",
+                backgroundColor: "white",
+                borderRadius: "12px",
+                boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
+                textAlign: "center",
+                transition: "transform 0.2s ease",
               }}
             >
               <div
@@ -224,49 +293,26 @@ const Portfolio = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  margin: "0 auto 8px",
+                  margin: "0 auto 12px",
                 }}
               >
                 <Database size={24} color="#2563eb" />
               </div>
-              <h3 style={{ fontWeight: "600", color: "#2563eb", marginBottom: "4px" }}>SQL</h3>
-              <p style={{ fontSize: "14px", color: "#6b7280" }}>Base de Datos</p>
+              <h3 style={{ fontWeight: "600", color: "#2563eb", marginBottom: "4px", fontSize: "16px" }}>SQL</h3>
+              <p style={{ fontSize: "12px", color: "#6b7280" }}>Base de Datos</p>
             </div>
 
+            {/* FILA 2: Java, JavaScript, Git */}
+
+            {/* Java */}
             <div
               style={{
-                padding: "24px",
+                padding: "20px",
                 backgroundColor: "white",
                 borderRadius: "12px",
                 boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
                 textAlign: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: "48px",
-                  height: "48px",
-                  backgroundColor: "#fef3c7",
-                  borderRadius: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 8px",
-                }}
-              >
-                <span style={{ color: "#d97706", fontWeight: "bold", fontSize: "18px" }}>JS</span>
-              </div>
-              <h3 style={{ fontWeight: "600", color: "#d97706", marginBottom: "4px" }}>JavaScript</h3>
-              <p style={{ fontSize: "14px", color: "#6b7280" }}>Frontend</p>
-            </div>
-
-            <div
-              style={{
-                padding: "24px",
-                backgroundColor: "white",
-                borderRadius: "12px",
-                boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
-                textAlign: "center",
+                transition: "transform 0.2s ease",
               }}
             >
               <div
@@ -278,49 +324,53 @@ const Portfolio = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  margin: "0 auto 8px",
+                  margin: "0 auto 12px",
                 }}
               >
                 <Coffee size={24} color="#dc2626" />
               </div>
-              <h3 style={{ fontWeight: "600", color: "#dc2626", marginBottom: "4px" }}>Java</h3>
-              <p style={{ fontSize: "14px", color: "#6b7280" }}>Backend</p>
+              <h3 style={{ fontWeight: "600", color: "#dc2626", marginBottom: "4px", fontSize: "16px" }}>Java</h3>
+              <p style={{ fontSize: "12px", color: "#6b7280" }}>Backend</p>
             </div>
 
+            {/* JavaScript */}
             <div
               style={{
-                padding: "24px",
+                padding: "20px",
                 backgroundColor: "white",
                 borderRadius: "12px",
                 boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
                 textAlign: "center",
+                transition: "transform 0.2s ease",
               }}
             >
               <div
                 style={{
                   width: "48px",
                   height: "48px",
-                  backgroundColor: "#e0f2fe",
+                  backgroundColor: "#fef3c7",
                   borderRadius: "8px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  margin: "0 auto 8px",
+                  margin: "0 auto 12px",
                 }}
               >
-                <span style={{ color: "#0369a1", fontWeight: "bold", fontSize: "18px" }}>K</span>
+                <span style={{ color: "#d97706", fontWeight: "bold", fontSize: "18px" }}>JS</span>
               </div>
-              <h3 style={{ fontWeight: "600", color: "#0369a1", marginBottom: "4px" }}>Kotlin</h3>
-              <p style={{ fontSize: "14px", color: "#6b7280" }}>Android</p>
+              <h3 style={{ fontWeight: "600", color: "#d97706", marginBottom: "4px", fontSize: "16px" }}>JavaScript</h3>
+              <p style={{ fontSize: "12px", color: "#6b7280" }}>Frontend</p>
             </div>
 
+            {/* Git */}
             <div
               style={{
-                padding: "24px",
+                padding: "20px",
                 backgroundColor: "white",
                 borderRadius: "12px",
                 boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
                 textAlign: "center",
+                transition: "transform 0.2s ease",
               }}
             >
               <div
@@ -332,27 +382,30 @@ const Portfolio = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  margin: "0 auto 8px",
+                  margin: "0 auto 12px",
                 }}
               >
                 <GitBranch size={24} color="#475569" />
               </div>
-              <h3 style={{ fontWeight: "600", color: "#475569", marginBottom: "4px" }}>Git</h3>
-              <p style={{ fontSize: "14px", color: "#6b7280" }}>Control de Versiones</p>
+              <h3 style={{ fontWeight: "600", color: "#475569", marginBottom: "4px", fontSize: "16px" }}>Git</h3>
+              <p style={{ fontSize: "12px", color: "#6b7280" }}>Control de Versiones</p>
             </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div
+                    <div
             style={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
               gap: "16px",
+              justifyContent: "center",
               alignItems: "center",
               marginBottom: "32px",
+              flexWrap: "wrap",
             }}
           >
-            <button
+            <a
+              href="mailto:camiloblas0914@outlook.com"
+              className="contact-button"
               style={{
                 padding: "12px 32px",
                 backgroundColor: "#7c3aed",
@@ -364,12 +417,18 @@ const Portfolio = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: "8px",
+                textDecoration: "none",
+                transition: "background-color 0.2s ease",
               }}
             >
               <Mail size={16} />
               Contáctame
-            </button>
-            <button
+            </a>
+
+            <a
+              href="https://github.com/blazsnkdev"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 padding: "12px 32px",
                 backgroundColor: "white",
@@ -381,22 +440,25 @@ const Portfolio = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: "8px",
+                textDecoration: "none",
+                transition: "all 0.2s ease",
               }}
             >
               <Github size={16} />
               Ver Proyectos
-            </button>
+            </a>
           </div>
+
 
           {/* Social Links */}
           <div style={{ display: "flex", justifyContent: "center", gap: "24px" }}>
-            <a href="#" style={{ color: "#9ca3af" }}>
+            <a href="https://github.com/blazsnkdev" target="_blank" style={{ color: "#9ca3af", transition: "color 0.2s ease" }}>
               <Github size={24} />
             </a>
-            <a href="#" style={{ color: "#9ca3af" }}>
+            <a href="https://pe.linkedin.com/in/camilo-blas-asto-aiquipa-547961358" target="_blank" style={{ color: "#9ca3af", transition: "color 0.2s ease" }}>
               <Linkedin size={24} />
             </a>
-            <a href="#" style={{ color: "#9ca3af" }}>
+            <a href="mailto:camiloblas0914@outlook.com" style={{ color: "#9ca3af", transition: "color 0.2s ease" }}>
               <Mail size={24} />
             </a>
           </div>
@@ -418,7 +480,14 @@ const Portfolio = () => {
             Sobre Mí
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "start" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: window.innerWidth < 768 ? "1fr" : "1fr 1fr",
+              gap: "48px",
+              alignItems: "start",
+            }}
+          >
             {/* Personal Info */}
             <div>
               <h3 style={{ fontSize: "24px", fontWeight: "600", color: "#7c3aed", marginBottom: "24px" }}>
@@ -623,13 +692,13 @@ const Portfolio = () => {
             © 2024 Camilo Blas Asto Aiquipa. Desarrollador .NET especializado en aplicaciones empresariales.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "24px" }}>
-            <a href="https://github.com/blazsnkdev" style={{ color: "#9ca3af", textDecoration: "none" }}>
+            <a href="https://github.com/blazsnkdev" target="_blank" style={{ color: "#9ca3af", textDecoration: "none" }}>
               <Github size={20} />
             </a>
-            <a href="#" style={{ color: "#9ca3af", textDecoration: "none" }}>
+            <a href="https://pe.linkedin.com/in/camilo-blas-asto-aiquipa-547961358" target="_blank" style={{ color: "#9ca3af", textDecoration: "none" }}>
               <Linkedin size={20} />
             </a>
-            <a href="#" style={{ color: "#9ca3af", textDecoration: "none" }}>
+            <a href="mailto:camiloblas0914@outlook.com" style={{ color: "#9ca3af", textDecoration: "none" }}>
               <Mail size={20} />
             </a>
           </div>

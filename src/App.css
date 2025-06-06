@@ -5,13 +5,57 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .App {
   text-align: center;
+}
+
+/* Skills Grid Responsive */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+/* Tablet */
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    max-width: 400px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    max-width: 250px;
+  }
+}
+
+/* Hover effects for skills */
+.skills-grid > div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Social links hover */
+a:hover svg {
+  color: #7c3aed !important;
+}
+
+
+/* Contact button icon hover color */
+.contact-button:hover svg {
+  color: black !important;
 }
