@@ -689,7 +689,7 @@ const Portfolio = () => {
       >
         <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
           <p style={{ marginBottom: "16px", fontSize: "16px" }}>
-            © 2024 Camilo Blas Asto Aiquipa. Desarrollador .NET especializado en aplicaciones empresariales.
+            © 2025 Camilo Blas Asto Aiquipa. Desarrollador .NET especializado en aplicaciones empresariales.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "24px" }}>
             <a href="https://github.com/blazsnkdev" target="_blank" style={{ color: "#9ca3af", textDecoration: "none" }}>
